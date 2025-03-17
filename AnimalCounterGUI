@@ -46,3 +46,12 @@ class AnimalCounterGUI {
         frame.add(alligatorRadio);
         frame.add(sheepRadio);
         frame.add(exitButton);
+
+        addAlligatorButton.addActionListener(new ButtonHandler());
+        addSheepButton.addActionListener(new ButtonHandler());
+        displayCountsButton.addActionListener(new ButtonHandler());
+        resetButton.addActionListener(new ButtonHandler());
+        exitButton.addActionListener(e -> System.exit(0));
+
+        frame.setVisible(true);
+    }
