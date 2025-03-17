@@ -1,0 +1,15 @@
+// Alligator class
+class Alligator extends Animal implements Countable {
+    public Alligator() {
+        count = 0;
+    }
+
+    @Override
+    public void incrementCount() {
+        count++;
+        if (Sheep.count > 0) {
+            Sheep.count--;
+            System.out.println("An alligator ate a sheep!");
+        }
+    }
+}
