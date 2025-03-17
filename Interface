@@ -1,0 +1,4 @@
+// Interface Countable
+interface Countable {
+    void incrementCount();
+}
