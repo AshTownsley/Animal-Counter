@@ -1,0 +1,48 @@
+// GUI Application
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+class AnimalCounterGUI {
+    private JFrame frame;
+    private JLabel alligatorLabel, sheepLabel;
+    private JButton addAlligatorButton, addSheepButton, displayCountsButton, resetButton, exitButton;
+    private JRadioButton alligatorRadio, sheepRadio;
+    private Alligator alligator;
+    private Sheep sheep;
+
+    public AnimalCounterGUI() {
+        alligator = new Alligator();
+        sheep = new Sheep();
+
+        frame = new JFrame("Animal Counter");
+        frame.setSize(300, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(new FlowLayout());
+
+        frame.add(new JLabel("Welcome to Animal Counter!"));
+        alligatorLabel = new JLabel("Alligators: 0");
+        sheepLabel = new JLabel("Sheep: 0");
+        frame.add(alligatorLabel);
+        frame.add(sheepLabel);
+
+        addAlligatorButton = new JButton("Add Alligator");
+        addSheepButton = new JButton("Add Sheep");
+        displayCountsButton = new JButton("Display Counts");
+        resetButton = new JButton("Reset Counts");
+        exitButton = new JButton("Exit");
+
+        alligatorRadio = new JRadioButton("Alligator");
+        sheepRadio = new JRadioButton("Sheep");
+        ButtonGroup group = new ButtonGroup();
+        group.add(alligatorRadio);
+        group.add(sheepRadio);
+
+        frame.add(addAlligatorButton);
+        frame.add(addSheepButton);
+        frame.add(displayCountsButton);
+        frame.add(resetButton);
+        frame.add(alligatorRadio);
+        frame.add(sheepRadio);
+        frame.add(exitButton);
