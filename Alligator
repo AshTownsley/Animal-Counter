@@ -3,6 +3,13 @@ public class Alligator extends Animal implements Countable {
 
     private Sheep sheep;  // Reference to a Sheep instance
 
+    // Default constructor
+    public Alligator() {
+        this.count = 0;  // Initialize count to zero
+        this.sheep = new Sheep();  // Create a new Sheep instance by default
+    }
+
+    // Parameterized constructor that accepts a Sheep instance
     public Alligator(Sheep sheep) {
         this.count = 0;  // Initialize count to zero
         this.sheep = sheep;  // Initialize the reference to Sheep instance
