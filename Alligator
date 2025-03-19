@@ -1,15 +1,23 @@
-// Alligator class
-class Alligator extends Animal implements Countable {
+// Alligator class that inherits from Animal and implements Countable
+public class Alligator extends Animal implements Countable {
+
     public Alligator() {
-        count = 0;
+        this.count = 0; // Initialize count to zero
     }
 
+    // Override incrementCount to add 1 alligator and deduct 1 sheep if possible
     @Override
     public void incrementCount() {
-        count++;
-        if (Sheep.count > 0) {
-            Sheep.count--;
-            System.out.println("An alligator ate a sheep!");
+        count++;  // Add one alligator
+        
+        // Check if there are any sheep to deduct
+        if (count > 0) {
+            Sheep.subtractSheep();
+        }
+
+        // Display the current status
+        if (count > 0) {
+            System.out.println("Alligator count: " + count + " - Watch out! Alligators are hungry!");
         }
     }
 }
