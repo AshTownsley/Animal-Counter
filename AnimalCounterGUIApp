@@ -1,26 +1,7 @@
-    private class ButtonHandler implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            if (e.getSource() == addAlligatorButton) {
-                alligator.incrementCount();
-            } else if (e.getSource() == addSheepButton) {
-                sheep.incrementCount();
-            } else if (e.getSource() == displayCountsButton) {
-                alligatorLabel.setText("Alligators: " + alligator.getCount());
-                sheepLabel.setText("Sheep: " + sheep.getCount());
-            } else if (e.getSource() == resetButton) {
-                if (alligatorRadio.isSelected()) {
-                    alligator.resetCount();
-                } else if (sheepRadio.isSelected()) {
-                    sheep.resetCount();
-                }
-            }
-        }
-    }
-}
-
-// Main application
 public class AnimalCounterGUIApp {
     public static void main(String[] args) {
-        new AnimalCounterGUI();
+        // Create and display the GUI
+        AnimalCounterGUI gui = new AnimalCounterGUI();
+        gui.setVisible(true);
     }
 }
