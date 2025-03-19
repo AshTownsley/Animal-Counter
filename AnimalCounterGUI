@@ -16,21 +16,27 @@ public class AnimalCounterGUI extends JFrame {
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        alligator = new Alligator();
-        sheep = new Sheep();
+        alligator = new Alligator();  // Initialize Alligator object
+        sheep = new Sheep();  // Initialize Sheep object
 
         // Layout setup
-        setLayout(new FlowLayout());
+        setLayout(new BorderLayout());
+
+        // Create Panels
+        JPanel mainPanel = new JPanel(new GridLayout(6, 1, 10, 10));
+        JPanel buttonPanel = new JPanel(new FlowLayout());
+        JPanel radioButtonPanel = new JPanel(new FlowLayout());
 
         // Welcome label
         JLabel welcomeLabel = new JLabel("Welcome to the Animal Counter!");
-        add(welcomeLabel);
+        welcomeLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        add(welcomeLabel, BorderLayout.NORTH);
 
         // Count labels
         alligatorLabel = new JLabel("Alligator count: 0");
         sheepLabel = new JLabel("Sheep count: 0");
-        add(alligatorLabel);
-        add(sheepLabel);
+        mainPanel.add(alligatorLabel);
+        mainPanel.add(sheepLabel);
 
         // Buttons for adding animals
         addAlligatorButton = new JButton("Add Alligator");
@@ -38,11 +44,14 @@ public class AnimalCounterGUI extends JFrame {
         displayCountsButton = new JButton("Display Counts");
         resetCountsButton = new JButton("Reset Counts");
         exitButton = new JButton("Exit");
-        add(addAlligatorButton);
-        add(addSheepButton);
-        add(displayCountsButton);
-        add(resetCountsButton);
-        add(exitButton);
+
+        buttonPanel.add(addAlligatorButton);
+        buttonPanel.add(addSheepButton);
+        buttonPanel.add(displayCountsButton);
+        buttonPanel.add(resetCountsButton);
+        buttonPanel.add(exitButton);
+
+        mainPanel.add(buttonPanel);
 
         // Radio buttons to reset individual animal counts
         alligatorRadioButton = new JRadioButton("Alligator");
@@ -50,8 +59,13 @@ public class AnimalCounterGUI extends JFrame {
         radioButtonGroup = new ButtonGroup();
         radioButtonGroup.add(alligatorRadioButton);
         radioButtonGroup.add(sheepRadioButton);
-        add(alligatorRadioButton);
-        add(sheepRadioButton);
+
+        radioButtonPanel.add(alligatorRadioButton);
+        radioButtonPanel.add(sheepRadioButton);
+        mainPanel.add(radioButtonPanel);
+
+        // Add main panel to frame
+        add(mainPanel, BorderLayout.CENTER);
 
         // Event handlers for buttons
         addAlligatorButton.addActionListener(new ActionListener() {
@@ -91,5 +105,11 @@ public class AnimalCounterGUI extends JFrame {
                 System.exit(0);
             }
         });
+    }
+
+    public static void main(String[] args) {
+        // Launch GUI
+        AnimalCounterGUI gui = new AnimalCounterGUI();
+        gui.setVisible(true);
     }
 }
