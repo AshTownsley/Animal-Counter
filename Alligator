@@ -1,8 +1,11 @@
 // Alligator class that inherits from Animal and implements Countable
 public class Alligator extends Animal implements Countable {
 
-    public Alligator() {
-        this.count = 0; // Initialize count to zero
+    private Sheep sheep;  // Reference to a Sheep instance
+
+    public Alligator(Sheep sheep) {
+        this.count = 0;  // Initialize count to zero
+        this.sheep = sheep;  // Initialize the reference to Sheep instance
     }
 
     // Override incrementCount to add 1 alligator and deduct 1 sheep if possible
@@ -11,8 +14,8 @@ public class Alligator extends Animal implements Countable {
         count++;  // Add one alligator
         
         // Check if there are any sheep to deduct
-        if (count > 0) {
-            Sheep.subtractSheep();
+        if (sheep != null) {
+            sheep.subtractSheep();
         }
 
         // Display the current status
