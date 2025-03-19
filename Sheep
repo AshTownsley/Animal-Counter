@@ -1,13 +1,27 @@
-// Sheep class
-class Sheep extends Animal implements Countable {
-    public static int count = 0;
+// Sheep class that inherits from Animal and implements Countable
+public class Sheep extends Animal implements Countable {
 
     public Sheep() {
-        count = 0;
+        this.count = 0; // Initialize count to zero
     }
 
+    // Override incrementCount to add 2 sheep
     @Override
     public void incrementCount() {
-        count += 2;
+        count += 2;  // Add 2 sheep
+        
+        // Display the current status
+        System.out.println("Sheep count: " + count + " - The flock is growing!");
+    }
+
+    // Static method to deduct a sheep if an alligator is added
+    public static void subtractSheep() {
+        // Check if sheep count is greater than zero
+        if (count > 0) {
+            count--;  // Deduct one sheep if there are any
+            System.out.println("A sheep has been eaten! Remaining sheep: " + count);
+        } else {
+            System.out.println("No sheep left for the alligators!");
+        }
     }
 }
