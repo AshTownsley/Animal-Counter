@@ -14,8 +14,8 @@ public class Sheep extends Animal implements Countable {
         System.out.println("Sheep count: " + count + " - The flock is growing!");
     }
 
-    // Static method to deduct a sheep if an alligator is added
-    public static void subtractSheep() {
+    // Instance method to deduct a sheep if an alligator is added
+    public void subtractSheep() {
         // Check if sheep count is greater than zero
         if (count > 0) {
             count--;  // Deduct one sheep if there are any
